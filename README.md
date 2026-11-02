@@ -1,15 +1,21 @@
 # Contacts Remix
 
-An original Kotlin + Jetpack Compose contacts and phone app inspired by publicly described OnePlus Contacts reference imagery and flows. It is not affiliated with OnePlus and contains no copied OEM code or assets.
+An original Kotlin + Jetpack Compose contacts app inspired by the publicly listed OnePlus Contacts release. This is an independent implementation, not affiliated with OnePlus, and includes no copied proprietary code, branding, or assets.
 
-Target: Android 13+ (minSdk 33). Visual design uses a clean, light OnePlus-inspired red accent, compact contact rows, alphabetical navigation, contact details and familiar bottom navigation. Uses Android's Contacts Provider and system dialer intents for device contacts and calls.
+## Features
+- On-device contacts list, search, and favorites
+- Contact calling card with call, message, and edit actions
+- Add contacts through the Android Contacts app
+- Keypad opens the system dialer for calls
+- Settings screen with dark theme toggle and contact refresh
+- Android 13+ support (minSdk 33), including Realme C25s class devices
 
-## Current scope
-- Contacts list with search and alphabetical index
-- Contact details, add and edit through Android Contacts app, favorites
-- Recents and a simple keypad that hands calls off to the system phone app
-- Android 13 runtime contacts permission
+The app reads the Android Contacts Provider after asking for the contacts permission. Call and message actions hand off to the device's system apps. Call history is not read by this app.
 
-Reference: https://www.apkmirror.com/apk/oneplus-ltd/oneplus-contacts-4/oneplus-contacts-16-80-15-release/ . APKMirror lists version 16.80.15 (version code 160800015), uploaded August 11, 2026, Android 15+ minimum, arm64-v8a, nodpi. The release page does not show feature notes or screenshots. This project therefore implements the requested general contacts/dialer experience, not an OEM-exact recreation.
+## Build
+Run `./gradlew assembleDebug`. GitHub Actions builds and publishes the debug APK as a workflow artifact on pushes to `main`.
 
-Build locally with `./gradlew assembleDebug`. GitHub Actions builds an APK on pushes to `main`.
+## Reference
+APKMirror lists OnePlus Contacts 16.80.15, uploaded August 11, 2026, with Android 15+ minimum, arm64-v8a, nodpi, and a listed APK size of 88.88 MB. The release page does not provide feature notes or screenshots, so the app uses general contacts-app conventions as inspiration rather than claiming to reproduce unverified OEM-specific features.
+
+Reference: https://www.apkmirror.com/apk/oneplus-ltd/oneplus-contacts-4/oneplus-contacts-16-80-15-release/
