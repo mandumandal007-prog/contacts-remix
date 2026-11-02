@@ -139,7 +139,7 @@ private fun CallingCard(person: Person, onCall: (String) -> Unit, onMessage: (St
         Spacer(Modifier.height(26.dp)); Avatar(person.name, 112); Spacer(Modifier.height(18.dp))
         Text(person.name, fontSize = 27.sp, fontWeight = FontWeight.SemiBold); Text(if (person.starred) "★ Favorite" else "Contact", color = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(Modifier.height(28.dp)); Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            ActionButton("☎", "Call") { onCall(person.phone) }; ActionButton("✉", "Message") { onMessage(person.phone) }; ActionButton("✎", "Edit") { onEdit(person.id) }
+            ActionButton("☎", "Call", Modifier.weight(1f)) { onCall(person.phone) }; ActionButton("✉", "Message", Modifier.weight(1f)) { onMessage(person.phone) }; ActionButton("✎", "Edit", Modifier.weight(1f)) { onEdit(person.id) }
         }
         Spacer(Modifier.height(28.dp))
         Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(18.dp), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
@@ -149,8 +149,8 @@ private fun CallingCard(person: Person, onCall: (String) -> Unit, onMessage: (St
 }
 
 @Composable
-private fun ActionButton(icon: String, label: String, onClick: () -> Unit) {
-    Column(Modifier.weight(1f).clip(RoundedCornerShape(16.dp)).background(MaterialTheme.colorScheme.surface).clickable(onClick = onClick).padding(vertical = 15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+private fun ActionButton(icon: String, label: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
+    Column(modifier.clip(RoundedCornerShape(16.dp)).background(MaterialTheme.colorScheme.surface).clickable(onClick = onClick).padding(vertical = 15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(icon, fontSize = 23.sp, color = MaterialTheme.colorScheme.primary); Spacer(Modifier.height(5.dp)); Text(label, fontSize = 13.sp)
     }
 }
